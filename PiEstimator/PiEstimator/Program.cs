@@ -26,8 +26,24 @@ namespace PiEstimator
             double pi = 0.0;
 
             // TODO: Calculate Pi
+            double NOP = 0.0; // Number of Points
+            double PIC = 0.0; // Points inside Circle
+            double x;
+            double y;
 
-            return pi;
+            for (int i = 0; i < n; i++)
+            {
+                x = rand.NextDouble();
+                y = rand.NextDouble();
+
+                if (x * x + y * y <= 1)
+                {
+                    PIC++;
+                }
+            }
+            
+            // pi = 4(number of points in circle/total number of points)
+            return 4*PIC/n;
         }
 
         static long GetNumber(string prompt)
